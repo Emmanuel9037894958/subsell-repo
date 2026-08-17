@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -30,15 +30,7 @@ import { auth } from "../../lib/firebase";
 export default function SignUp() {
   const router = useRouter();
 
-  const [pageLoading, setPageLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPageLoading(false);
-    }, 9000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [pageLoading, setPageLoading] = useState(false);
 
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
