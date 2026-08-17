@@ -53,7 +53,7 @@ export default function Home() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="/signup"
+                  href="/contact"
                   className="flex min-h-12 items-center justify-center rounded-lg bg-[#0b5ed7] px-6 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-[#083b8a]"
                 >
                   Get Started
