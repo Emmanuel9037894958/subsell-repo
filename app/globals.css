@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --subsell-blue: #0b5ed7;
+  --subsell-dark-blue: #083b8a;
+  --subsell-light-blue: #eef6ff;
+  --subsell-white: #ffffff;
+  --subsell-text: #0f172a;
+  --subsell-muted: #64748b;
+  --subsell-border: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--subsell-white);
+  color: var(--subsell-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--subsell-blue);
+  color: white;
+}
+/* =========================================
+   SUBSELL TESTIMONIAL SLIDER
+========================================= */
+
+.testimonial-window {
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonial-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  gap: 16px;
+  will-change: transform;
+}
+
+.testimonial-left {
+  animation: subsell-slide-left 45s linear infinite;
+}
+
+.testimonial-right {
+  animation: subsell-slide-right 45s linear infinite;
+}
+
+@keyframes subsell-slide-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes subsell-slide-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Pause when the user touches/hover the testimonials */
+.testimonial-track:hover {
+  animation-play-state: paused;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .testimonial-track {
+    gap: 12px;
+  }
+
+  .testimonial-left {
+    animation-duration: 35s;
+  }
+
+  .testimonial-right {
+    animation-duration: 35s;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none;
+  }
+}
