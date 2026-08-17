@@ -157,7 +157,7 @@ export default function Login() {
 
       // Redirect after success
       setTimeout(() => {
-        router.push("/dashboard");
+        router.push("/");
       }, 1200);
     } catch (error) {
       console.error("Google login error:", error);
