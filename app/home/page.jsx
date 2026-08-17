@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Navbar from "../components/Navbar";
-import Testimonials from "../components/Testimonials";
+import Navbar from "../../components/Navbar";
+import Testimonials from "../../components/Testimonials";
 import { MessageSquare } from "lucide-react";
 
 export default function Home() {
