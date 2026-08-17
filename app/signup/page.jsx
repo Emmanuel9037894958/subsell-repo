@@ -28,6 +28,8 @@ import {
 import { auth } from "../../lib/firebase";
 
 export default function SignUp() {
+  const router = useRouter();
+
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(() => {
@@ -37,8 +39,6 @@ export default function SignUp() {
 
     return () => clearTimeout(timer);
   }, []);
-
-  const router = useRouter();
 
   const [step, setStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
@@ -110,16 +110,25 @@ export default function SignUp() {
     }
   };
 
+  // --------------------------------------------------
+  // SUCCESS REDIRECT
+  // --------------------------------------------------
   const handleSuccessfulSignup = () => {
     setError("");
     setSuccess("Account created successfully! Welcome to SUBSELL 🎉");
     setShowSuccessEffect(true);
 
+    // Give Firebase a moment to finish updating the auth state,
+    // then replace the signup page with the homepage.
     setTimeout(() => {
-      router.push("/");
+      router.replace("/");
+      router.refresh();
     }, 1800);
   };
 
+  // --------------------------------------------------
+  // EMAIL SIGNUP
+  // --------------------------------------------------
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -147,7 +156,7 @@ export default function SignUp() {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         formData.email.trim(),
-        formData.password,
+        formData.password
       );
 
       const user = userCredential.user;
@@ -167,6 +176,9 @@ export default function SignUp() {
     }
   };
 
+  // --------------------------------------------------
+  // GOOGLE SIGNUP
+  // --------------------------------------------------
   const handleGoogleSignup = async () => {
     setError("");
     setSuccess("");
@@ -192,6 +204,10 @@ export default function SignUp() {
       setLoading(false);
     }
   };
+
+  // --------------------------------------------------
+  // PAGE LOADING
+  // --------------------------------------------------
   if (pageLoading) {
     return (
       <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">
@@ -245,6 +261,9 @@ export default function SignUp() {
     );
   }
 
+  // --------------------------------------------------
+  // MAIN SIGNUP PAGE
+  // --------------------------------------------------
   return (
     <div
       className="relative min-h-screen overflow-hidden bg-slate-950 font-sans text-slate-100"
@@ -433,7 +452,9 @@ export default function SignUp() {
                     >
                       <User
                         className={`h-5 w-5 ${
-                          accountType === "individual" ? "text-blue-400" : ""
+                          accountType === "individual"
+                            ? "text-blue-400"
+                            : ""
                         }`}
                       />
 
@@ -623,7 +644,9 @@ export default function SignUp() {
                         </div>
 
                         <p className="text-[11px] text-slate-400">
-                          {strength <= 2 ? "Weak password" : "Strong password"}
+                          {strength <= 2
+                            ? "Weak password"
+                            : "Strong password"}
                         </p>
                       </div>
                     )}
@@ -679,7 +702,9 @@ export default function SignUp() {
                       disabled={loading}
                       className="flex-1 rounded-xl bg-[#0b5ed7] py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/30 transition hover:bg-blue-600 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                      {loading ? "Creating Account..." : "Complete Sign Up"}
+                      {loading
+                        ? "Creating Account..."
+                        : "Complete Sign Up"}
                     </button>
                   </div>
                 </>
@@ -729,6 +754,7 @@ export default function SignUp() {
                     d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.29 0 3.2 2.7 1.21 6.56l4.11 3.15c.94-2.82 3.58-4.96 6.68-4.96z"
                   />
                 </svg>
+
                 Google
               </button>
 
@@ -744,6 +770,7 @@ export default function SignUp() {
                 >
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                 </svg>
+
                 GitHub
               </button>
             </div>
