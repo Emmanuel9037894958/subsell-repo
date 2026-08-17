@@ -26,11 +26,11 @@ export default function Home() {
           <img
             src="/IMAGE1.jpg"
             alt="SUBSELL Platform Background"
-            className="h-full w-full object-cover object-center opacity-30"
+            className="h-full w-full object-cover object-center opacity-60"
           />
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/40" />
+          {/* Dark Overlay - keeps image visible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-900/45 to-slate-900/20" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -40,15 +40,14 @@ export default function Home() {
               {/* Badge */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-950/80 px-3.5 py-2 text-xs font-semibold text-blue-300 backdrop-blur-md">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
-
                 Welcome to SUBSELL
               </div>
 
               {/* Heading */}
               <h1 className="text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                A smarter way to{" "}
+                A smarter way{" "}
                 <span className="text-[#3b82f6]">
-                  connect and grow.
+                  to connect and grow.
                 </span>
               </h1>
 
@@ -59,14 +58,16 @@ export default function Home() {
               </p>
 
               {/* Buttons */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-row gap-3 sm:flex-row">
+                {/* Get Started */}
                 <Link
-                  href="/signup"
+                  href="/contact"
                   className="flex min-h-12 items-center justify-center rounded-lg bg-[#0b5ed7] px-6 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition hover:bg-[#083b8a]"
                 >
                   Get Started
                 </Link>
 
+                {/* Learn More */}
                 <Link
                   href="/about"
                   className="flex min-h-12 items-center justify-center rounded-lg border border-slate-700 bg-slate-900/60 px-6 text-sm font-bold text-white backdrop-blur-sm transition hover:border-blue-400 hover:bg-slate-800"
