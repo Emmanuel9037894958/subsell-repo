@@ -72,9 +72,9 @@ export default function GuildPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-[#eef6ff] via-[#f8fafc] to-slate-50">
         <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 py-18 sm:px-6 lg:px-8 lg:py-28">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3.5 py-1.5 text-xs font-bold text-[#0b5ed7] shadow-sm">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto max-w-3xl text-center py-28">
+            <div className=" inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white px-3.5 py-1.5 text-xs font-bold text-[#0b5ed7] shadow-sm mb-8">
               <Users className="h-3.5 w-3.5" />
               SUBSELL Community & Ecosystem
             </div>
@@ -85,7 +85,7 @@ export default function GuildPage() {
             </h1>
 
             <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
-              The SUBSELL Guild is an exclusive collective where smart investors, traders, and high-earners share strategies, unlock platform perks, and scale earnings as a unified force.
+              The SUBSEL Guild is an exclusive collective where smart investors, traders, and high-earners share strategies, unlock platform perks, and scale earnings as a unified force.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -155,7 +155,7 @@ export default function GuildPage() {
               Guild Tier Progression
             </h2>
             <p className="mt-3 text-slate-600">
-              The more active you are on SUBSELL, the higher your status and rewards.
+              The more active you are on SUBSEL, the higher your status and rewards.
             </p>
           </div>
 
@@ -295,7 +295,7 @@ export default function GuildPage() {
             Ready to claim your Guild seat?
           </h2>
           <p className="mt-3 text-blue-100">
-            Join thousands of active platform members growing together on SUBSELL.
+            Join thousands of active platform members growing together on SUBSEL.
           </p>
           <div className="mt-8">
             <Link

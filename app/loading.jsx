@@ -1,15 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-
 export default function Loading() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      window.location.href = "/signup";
-    }, 6000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  
 
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900">

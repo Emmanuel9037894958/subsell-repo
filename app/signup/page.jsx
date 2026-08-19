@@ -226,7 +226,7 @@ export default function SignUp() {
 
           {/* Brand Name */}
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-950">
-            SUB<span className="text-[#0b5ed7]">SELL</span>
+            SUB<span className="text-[#0b5ed7]">SEL</span>
           </h1>
 
           {/* Loading Text */}
@@ -385,7 +385,7 @@ export default function SignUp() {
                   href="/"
                   className="text-lg font-bold text-white lg:hidden"
                 >
-                  SUBSELL
+                  SUBSEL
                 </Link>
 
                 <span className="ml-auto text-xs font-semibold text-slate-400">

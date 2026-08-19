@@ -279,7 +279,7 @@ export default function Login() {
                 href="/"
                 className="text-lg font-bold text-white lg:hidden"
               >
-                SUBSELL
+                SUBSEL
               </Link>
 
             </div>

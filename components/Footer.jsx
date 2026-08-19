@@ -41,7 +41,7 @@ export default function Footer() {
                 S
               </span>
               <span className="text-2xl font-black tracking-tight text-white">
-                SUB<span className="text-blue-400">SELL</span>
+                SUB<span className="text-blue-400">SEL</span>
               </span>
             </Link>
 
@@ -111,10 +111,10 @@ export default function Footer() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
               <h3 className="text-xl font-bold text-white">
-                Stay connected with SUBSELL
+                Stay connected with SUBSEL
               </h3>
               <p className="mt-1 text-sm text-slate-300">
-                Get important updates and information directly from SUBSELL.
+                Get important updates and information directly from SUBSEL.
               </p>
             </div>
 
@@ -139,7 +139,7 @@ export default function Footer() {
       <div className="border-t border-slate-800 bg-slate-900/90">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p className="text-xs text-slate-400 sm:text-sm">
-            © {new Date().getFullYear()} SUBSELL. All rights reserved.
+            © {new Date().getFullYear()} SUBSEL. All rights reserved.
           </p>
 
           <div className="flex flex-wrap gap-6 text-xs sm:text-sm">

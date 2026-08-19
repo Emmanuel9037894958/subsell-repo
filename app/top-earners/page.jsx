@@ -28,12 +28,12 @@ export default function TopEarnersPage() {
       <Navbar />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-[#083b8a] text-white">
+      <section className="relative overflow-hidden bg-[#083b8a] text-white ">
         <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-900/50 px-3.5 py-1.5 text-xs font-semibold text-blue-200 backdrop-blur-md">
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 mt-32 lg:px-8 lg:py-20">
+          <div className=" inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-900/50 px-3.5 py-1.5 text-xs font-semibold text-blue-200 backdrop-blur-md">
             <Trophy className="h-4 w-4 text-amber-400" />
             Verified Performance Leaderboard
           </div>

@@ -28,13 +28,13 @@ const scamTactics = [
   },
   {
     title: "Phishing Domains & Fake Websites",
-    description: "Cloned login pages designed to look identical to SUBSELL to capture your login credentials and passwords.",
+    description: "Cloned login pages designed to look identical to SUBSEL to capture your login credentials and passwords.",
     badge: "Phishing",
     badgeColor: "bg-orange-100 text-orange-700 border-orange-200",
   },
   {
     title: "Off-Platform Payment Demands",
-    description: "Anyone requesting you to transfer funds outside the official SUBSELL platform escrow or wallet system.",
+    description: "Anyone requesting you to transfer funds outside the official SUBSEL platform escrow or wallet system.",
     badge: "Financial Scam",
     badgeColor: "bg-amber-100 text-amber-700 border-amber-200",
   },
@@ -65,10 +65,10 @@ export default function ScamAlertPage() {
     if (!query) return;
 
     // Simple domain/channel check logic
-    if (query.includes("subsell.com") || query.includes("@subsell_official")) {
+    if (query.includes("subsel.com") || query.includes("@subsel_official")) {
       setVerifyResult({
         status: "safe",
-        message: "Official & Verified SUBSELL Asset",
+        message: "Official & Verified SUBSEL Asset",
       });
     } else {
       setVerifyResult({
@@ -98,14 +98,14 @@ export default function ScamAlertPage() {
             </h1>
 
             <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Your security is our top priority. Learn how to spot phishing attempts, verify official channels, and keep your SUBSELL account protected against bad actors.
+              Your security is our top priority. Learn how to spot phishing attempts, verify official channels, and keep your SUBSEL account protected against bad actors.
             </p>
 
             {/* Quick Warning Pill */}
             <div className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-left shadow-sm">
               <AlertTriangle className="h-6 w-6 shrink-0 text-red-600" />
               <p className="text-xs sm:text-sm font-semibold text-red-900">
-                <span className="font-bold uppercase tracking-wider">Warning:</span> SUBSELL staff will <span className="underline">NEVER</span> ask for your password, 2FA code, or direct payments via Telegram/WhatsApp DMs.
+                <span className="font-bold uppercase tracking-wider">Warning:</span> SUBSEL staff will <span className="underline">NEVER</span> ask for your password, 2FA code, or direct payments via Telegram/WhatsApp DMs.
               </p>
             </div>
 
@@ -120,7 +120,7 @@ export default function ScamAlertPage() {
             <ShieldCheck className="h-6 w-6 text-[#0b5ed7]" />
             <div>
               <h2 className="text-lg font-bold text-slate-950">Official Link & Handle Verifier</h2>
-              <p className="text-xs text-slate-500">Check if a website link, Telegram username, or email belongs to SUBSELL.</p>
+              <p className="text-xs text-slate-500">Check if a website link, Telegram username, or email belongs to SUBSEL.</p>
             </div>
           </div>
 
@@ -129,7 +129,7 @@ export default function ScamAlertPage() {
               <Search className="absolute left-3.5 top-3.5 h-5 w-5 text-slate-400" />
               <input
                 type="text"
-                placeholder="Enter URL, email, or @username (e.g. subsell.com)"
+                placeholder="Enter URL, email, or @username (e.g. subsel.com)"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);

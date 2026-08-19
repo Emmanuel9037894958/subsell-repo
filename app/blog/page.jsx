@@ -9,10 +9,10 @@ const articles = [
   { 
     id: 1, 
     category: "Guides", 
-    title: "How to Get Started With SUBSELL", 
+    title: "How to Get Started With SUBSEL", 
     excerpt: 
       "A practical introduction to SUBSELL and the steps you can take to make the most of the platform.", 
-    author: "SUBSELL Team", 
+    author: "SUBSEL Team", 
     date: "August 18, 2026", 
     readTime: "5 min read", 
     featured: true, 
@@ -24,7 +24,7 @@ const articles = [
     title: "How to Protect Yourself From Online Scams", 
     excerpt: 
       "Learn how to identify suspicious requests, fake offers, impersonation attempts and other common online scams.", 
-    author: "SUBSELL Safety Team", 
+    author: "SUBSEL Safety Team", 
     date: "August 16, 2026", 
     readTime: "6 min read", 
     image: "/crop2.png",
@@ -35,7 +35,7 @@ const articles = [
     title: "Building Trust in the Digital Economy", 
     excerpt: 
       "Why transparency, communication and responsible digital practices matter when building an online business.", 
-    author: "SUBSELL Team", 
+    author: "SUBSEL Team", 
     date: "August 14, 2026", 
     readTime: "7 min read", 
     image: "/crop3.png",
@@ -46,7 +46,7 @@ const articles = [
     title: "5 Ways to Build a Strong Online Presence", 
     excerpt: 
       "Simple strategies that can help individuals and businesses present themselves professionally online.", 
-    author: "SUBSELL Team", 
+    author: "SUBSEL Team", 
     date: "August 12, 2026", 
     readTime: "4 min read", 
     image: "/crop4.png",
@@ -57,7 +57,7 @@ const articles = [
     title: "Why Community Matters Online", 
     excerpt: 
       "Discover how meaningful communities can create better opportunities for people to connect and grow.", 
-    author: "SUBSELL Team", 
+    author: "SUBSEL Team", 
     date: "August 10, 2026", 
     readTime: "5 min read", 
     image: "/crop5.png",
@@ -68,7 +68,7 @@ const articles = [
     title: "Creating a Better Digital Experience", 
     excerpt: 
       "A look at some of the principles behind creating digital platforms that are simple, accessible and trustworthy.", 
-    author: "SUBSELL Team", 
+    author: "SUBSEL Team", 
     date: "August 8, 2026", 
     readTime: "6 min read", 
     image: "/crop6.png",
@@ -151,7 +151,7 @@ export default function BlogPage() {
           <div className="max-w-3xl"> 
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-[#eef6ff] px-4 py-2 text-xs font-bold text-[#0b5ed7]"> 
               <span className="h-2 w-2 rounded-full bg-[#0b5ed7]" /> 
-              SUBSELL Insights 
+              SUBSEL Insights 
             </div> 
  
             <h1 className="text-2xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl"> 
@@ -237,7 +237,7 @@ export default function BlogPage() {
                   {featuredArticle.category} 
                 </span> 
  
-                <h2 className="mt-5 text-2xl font-extrabold leading-tight text-slate-950 sm:text-3xl"> 
+                <h2 className="mt-5 text-2xl font-extrabold leading-tight text-slate-950 sm:text-3l"> 
                   {featuredArticle.title} 
                 </h2> 
  
@@ -346,7 +346,7 @@ export default function BlogPage() {
           </div> 
  
           <h2 className="mt-5 text-2xl font-bold text-slate-950 sm:text-3xl"> 
-            Stay ahead with SUBSELL 
+            Stay ahead with SUBSEL 
           </h2> 
  
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-600"> 

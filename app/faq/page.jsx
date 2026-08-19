@@ -26,7 +26,7 @@ const categories = [
 const faqs = [
   {
     cat: "payouts",
-    question: "How fast are payouts processed on SUBSELL?",
+    question: "How fast are payouts processed on SUBSEL?",
     answer:
       "Payouts are processed instantly via our automated settlement engine. 98% of transfers hit recipient bank accounts or crypto wallets within 1 to 5 minutes."
   },
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     cat: "security",
-    question: "How does SUBSELL guarantee the safety of my funds?",
+    question: "How does SUBSEL guarantee the safety of my funds?",
     answer:
       "We operate using multi-signature reserve vaults and bank-grade SSL encryption. All transactions generate immutable reference records, ensuring total asset protection and transparency."
   },
@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     cat: "account",
-    question: "How do I create and verify my SUBSELL account?",
+    question: "How do I create and verify my SUBSEL account?",
     answer:
       "Click 'Sign Up', enter your details, and verify your email. Basic account features are enabled immediately. To unlock higher transaction limits, complete identity verification in your Profile Settings."
   },
@@ -95,8 +95,8 @@ export default function FAQPage() {
         <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl sm:h-80 sm:w-80" />
         <div className="absolute -left-20 bottom-0 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl sm:h-80 sm:w-80" />
 
-        <div className="relative mx-auto max-w-5xl px-4 py-12 text-center sm:px-6 lg:px-8 lg:py-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-900/50 px-3.5 py-1 text-[11px] font-semibold text-blue-200 backdrop-blur-md sm:text-xs">
+        <div className="relative mx-auto max-w-5xl px-4 py-32 text-center sm:px-6 lg:px-8 lg:py-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-900/50 px-3.5 text-[11px] font-semibold text-blue-200 backdrop-blur-md sm:text-xs">
             <LifeBuoy className="h-3.5 w-3.5 text-emerald-400" />
             Knowledge Base & FAQ
           </div>
