@@ -126,10 +126,7 @@ export default function SignUp() {
         return "An account already exists with this email using another sign-in method.";
 
       default:
-        return (
-          error?.message ||
-          "Something went wrong. Please try again."
-        );
+        return error?.message || "Something went wrong. Please try again.";
     }
   };
 
@@ -140,9 +137,7 @@ export default function SignUp() {
   const handleSuccessfulSignup = () => {
     setError("");
 
-    setSuccess(
-      "Account created successfully! Welcome to SUBSELL 🎉"
-    );
+    setSuccess("Account created successfully! Welcome to SUBSEL 🎉");
 
     setShowSuccessEffect(true);
 
@@ -160,17 +155,13 @@ export default function SignUp() {
     const whatsappNumber = "2348146182945";
 
     const message =
-      "Hello, I want to register on SUBSELL. Please send me an access code.";
+      "Hello, I want to register on SUBSEL. Please send me an access code.";
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
+      message,
     )}`;
 
-    window.open(
-      whatsappUrl,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   // --------------------------------------------------
@@ -189,18 +180,15 @@ export default function SignUp() {
     try {
       setVerifyingCode(true);
 
-      const response = await fetch(
-        "/api/access-code/verify",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            code: accessCode.trim().toUpperCase(),
-          }),
-        }
-      );
+      const response = await fetch("/api/access-code/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code: accessCode.trim().toUpperCase(),
+        }),
+      });
 
       const data = await response.json();
 
@@ -208,9 +196,7 @@ export default function SignUp() {
         setAccessCodeVerified(false);
         setCodeToken("");
 
-        setError(
-          data.message || "Invalid access code."
-        );
+        setError(data.message || "Invalid access code.");
 
         return;
       }
@@ -219,21 +205,18 @@ export default function SignUp() {
       setCodeToken(data.token);
 
       setCodeMessage(
-        "Access code verified successfully. You can now create your account."
+        "Access code verified successfully. You can now create your account.",
       );
 
       setError("");
     } catch (error) {
-      console.error(
-        "Access code verification error:",
-        error
-      );
+      console.error("Access code verification error:", error);
 
       setAccessCodeVerified(false);
       setCodeToken("");
 
       setError(
-        "Unable to verify the access code. Please check your internet connection."
+        "Unable to verify the access code. Please check your internet connection.",
       );
     } finally {
       setVerifyingCode(false);
@@ -259,10 +242,7 @@ export default function SignUp() {
       return;
     }
 
-    if (
-      accountType === "investor" &&
-      !formData.companyName.trim()
-    ) {
+    if (accountType === "investor" && !formData.companyName.trim()) {
       setError("Please enter your company name.");
       return;
     }
@@ -282,27 +262,19 @@ export default function SignUp() {
       },
       body: JSON.stringify({
         uid: user.uid,
-        fullName:
-          formData.fullName.trim() ||
-          user.displayName ||
-          "",
+        fullName: formData.fullName.trim() || user.displayName || "",
         email: user.email,
         phone: formData.phone.trim(),
         accountType,
         companyName:
-          accountType === "investor"
-            ? formData.companyName.trim()
-            : "",
+          accountType === "investor" ? formData.companyName.trim() : "",
       }),
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(
-        data.message ||
-          "Unable to create your SUBSELL profile."
-      );
+      throw new Error(data.message || "Unable to create your SUBSEL profile.");
     }
 
     return data;
@@ -327,9 +299,7 @@ export default function SignUp() {
     // STEP 2
     if (step === 2) {
       if (!accessCodeVerified || !codeToken) {
-        setError(
-          "You must verify a valid access code before continuing."
-        );
+        setError("You must verify a valid access code before continuing.");
 
         return;
       }
@@ -341,9 +311,7 @@ export default function SignUp() {
     // STEP 3
     if (step === 3) {
       if (!accessCodeVerified || !codeToken) {
-        setError(
-          "Your access code has not been verified."
-        );
+        setError("Your access code has not been verified.");
 
         setStep(2);
         return;
@@ -355,17 +323,13 @@ export default function SignUp() {
       }
 
       if (!formData.agreedToTerms) {
-        setError(
-          "You must agree to the Terms of Service and Privacy Policy."
-        );
+        setError("You must agree to the Terms of Service and Privacy Policy.");
 
         return;
       }
 
       if (formData.password.length < 8) {
-        setError(
-          "Password must contain at least 8 characters."
-        );
+        setError("Password must contain at least 8 characters.");
 
         return;
       }
@@ -377,12 +341,11 @@ export default function SignUp() {
         // CREATE FIREBASE AUTH USER
         // --------------------------------------------
 
-        const userCredential =
-          await createUserWithEmailAndPassword(
-            auth,
-            formData.email.trim(),
-            formData.password
-          );
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          formData.email.trim(),
+          formData.password,
+        );
 
         const user = userCredential.user;
 
@@ -398,28 +361,24 @@ export default function SignUp() {
         // CONSUME ACCESS CODE
         // --------------------------------------------
 
-        const consumeResponse = await fetch(
-          "/api/access-code/consume",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              token: codeToken,
-              uid: user.uid,
-              email: user.email,
-            }),
-          }
-        );
+        const consumeResponse = await fetch("/api/access-code/consume", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: codeToken,
+            uid: user.uid,
+            email: user.email,
+          }),
+        });
 
-        const consumeData =
-          await consumeResponse.json();
+        const consumeData = await consumeResponse.json();
 
         if (!consumeResponse.ok) {
           setError(
             consumeData.message ||
-              "Your account could not be completed because the access code could not be confirmed."
+              "Your account could not be completed because the access code could not be confirmed.",
           );
 
           return;
@@ -435,10 +394,7 @@ export default function SignUp() {
         // SUCCESS
         // --------------------------------------------
 
-        console.log(
-          "SUBSELL Firebase user created:",
-          user.uid
-        );
+        console.log("SUBSEL Firebase user created:", user.uid);
 
         handleSuccessfulSignup();
       } catch (error) {
@@ -461,7 +417,7 @@ export default function SignUp() {
 
     if (!accessCodeVerified || !codeToken) {
       setError(
-        "You must verify your SUBSELL access code before registering with Google."
+        "You must verify your SUBSEL access code before registering with Google.",
       );
 
       setStep(2);
@@ -472,15 +428,13 @@ export default function SignUp() {
     try {
       setGoogleLoading(true);
 
-      const provider =
-        new GoogleAuthProvider();
+      const provider = new GoogleAuthProvider();
 
       provider.setCustomParameters({
         prompt: "select_account",
       });
 
-      const result =
-        await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
 
       const user = result.user;
 
@@ -488,28 +442,24 @@ export default function SignUp() {
       // CONSUME ACCESS CODE
       // --------------------------------------------
 
-      const consumeResponse = await fetch(
-        "/api/access-code/consume",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            token: codeToken,
-            uid: user.uid,
-            email: user.email,
-          }),
-        }
-      );
+      const consumeResponse = await fetch("/api/access-code/consume", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: codeToken,
+          uid: user.uid,
+          email: user.email,
+        }),
+      });
 
-      const consumeData =
-        await consumeResponse.json();
+      const consumeData = await consumeResponse.json();
 
       if (!consumeResponse.ok) {
         setError(
           consumeData.message ||
-            "Your Google account could not be approved with this access code."
+            "Your Google account could not be approved with this access code.",
         );
 
         return;
@@ -521,17 +471,11 @@ export default function SignUp() {
 
       await createUserProfile(user);
 
-      console.log(
-        "SUBSELL Google user created:",
-        user.uid
-      );
+      console.log("SUBSEL Google user created:", user.uid);
 
       handleSuccessfulSignup();
     } catch (error) {
-      console.error(
-        "Google signup error:",
-        error
-      );
+      console.error("Google signup error:", error);
 
       setError(getFirebaseError(error));
     } finally {
@@ -565,9 +509,7 @@ export default function SignUp() {
 
           <h1 className="text-2xl font-extrabold tracking-tight text-slate-950">
             SUB
-            <span className="text-[#0b5ed7]">
-              SELL
-            </span>
+            <span className="text-[#0b5ed7]">SEL</span>
           </h1>
 
           <p className="mt-2 text-sm font-medium text-slate-500">
@@ -614,9 +556,7 @@ export default function SignUp() {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
 
           <div className="relative flex h-40 w-40 items-center justify-center rounded-full border border-emerald-400/30 bg-emerald-500/10 shadow-2xl shadow-emerald-500/20">
-            <div className="absolute animate-bounce text-5xl">
-              🌸
-            </div>
+            <div className="absolute animate-bounce text-5xl">🌸</div>
 
             <div className="absolute -top-8 left-4 animate-ping text-2xl">
               🌸
@@ -649,8 +589,7 @@ export default function SignUp() {
               <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0b5ed7] text-white shadow-lg shadow-blue-900/40">
                 S
               </span>
-
-              SUBSELL
+              SUBSEL
             </Link>
           </div>
 
@@ -665,16 +604,13 @@ export default function SignUp() {
             </h2>
 
             <p className="mt-5 text-base leading-7 text-slate-300">
-              Join individuals and enterprise partners
-              using SUBSELL to manage, scale, and secure
-              their digital asset portfolio.
+              Join individuals and enterprise partners using SUBSELL to manage,
+              scale, and secure their digital asset portfolio.
             </p>
 
             <div className="mt-10 grid grid-cols-2 gap-6 border-t border-white/10 pt-7">
               <div>
-                <p className="text-2xl font-bold text-white">
-                  256-Bit
-                </p>
+                <p className="text-2xl font-bold text-white">256-Bit</p>
 
                 <p className="mt-1 text-xs text-slate-400">
                   AES Data Encryption
@@ -682,9 +618,7 @@ export default function SignUp() {
               </div>
 
               <div>
-                <p className="text-2xl font-bold text-white">
-                  2 Mins
-                </p>
+                <p className="text-2xl font-bold text-white">2 Mins</p>
 
                 <p className="mt-1 text-xs text-slate-400">
                   Account Onboarding
@@ -694,8 +628,7 @@ export default function SignUp() {
           </div>
 
           <div className="text-xs text-slate-500">
-            © {new Date().getFullYear()} SUBSELL Inc.
-            All rights reserved.
+            © {new Date().getFullYear()} SUBSELL Inc. All rights reserved.
             <br />
             Protected by End-to-End KYC standard.
           </div>
@@ -729,7 +662,7 @@ export default function SignUp() {
                   href="/"
                   className="text-lg font-bold text-white lg:hidden"
                 >
-                  SUBSELL
+                  SUBSEL
                 </Link>
 
                 <span className="ml-auto text-xs font-semibold text-slate-400">
@@ -741,16 +674,16 @@ export default function SignUp() {
                 {step === 1
                   ? "Create an account"
                   : step === 2
-                  ? "Get access"
-                  : "Complete registration"}
+                    ? "Get access"
+                    : "Complete registration"}
               </h1>
 
               <p className="mt-2 text-sm leading-6 text-slate-400">
                 {step === 1
                   ? "Welcome! Please fill in your details to get started."
                   : step === 2
-                  ? "A valid SUBSELL access code is required before you can register."
-                  : "Set your password and complete your SUBSELL account."}
+                    ? "A valid SUBSELL access code is required before you can register."
+                    : "Set your password and complete your SUBSELL account."}
               </p>
             </div>
 
@@ -760,12 +693,7 @@ export default function SignUp() {
               <div
                 className="h-full rounded-full bg-[#0b5ed7] transition-all duration-300"
                 style={{
-                  width:
-                    step === 1
-                      ? "33.33%"
-                      : step === 2
-                      ? "66.66%"
-                      : "100%",
+                  width: step === 1 ? "33.33%" : step === 2 ? "66.66%" : "100%",
                 }}
               />
             </div>
@@ -788,10 +716,7 @@ export default function SignUp() {
 
             {/* FORM */}
 
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* STEP 1 */}
 
               {step === 1 && (
@@ -801,9 +726,7 @@ export default function SignUp() {
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
-                      onClick={() =>
-                        setAccountType("individual")
-                      }
+                      onClick={() => setAccountType("individual")}
                       className={`flex items-center gap-3 rounded-xl border p-3.5 text-left transition ${
                         accountType === "individual"
                           ? "border-[#0b5ed7] bg-blue-950/60 text-white shadow-lg shadow-blue-900/20"
@@ -812,16 +735,12 @@ export default function SignUp() {
                     >
                       <User
                         className={`h-5 w-5 ${
-                          accountType === "individual"
-                            ? "text-blue-400"
-                            : ""
+                          accountType === "individual" ? "text-blue-400" : ""
                         }`}
                       />
 
                       <div>
-                        <p className="text-xs font-bold">
-                          Individual
-                        </p>
+                        <p className="text-xs font-bold">Individual</p>
 
                         <p className="text-[10px] text-slate-500">
                           Personal use
@@ -831,9 +750,7 @@ export default function SignUp() {
 
                     <button
                       type="button"
-                      onClick={() =>
-                        setAccountType("investor")
-                      }
+                      onClick={() => setAccountType("investor")}
                       className={`flex items-center gap-3 rounded-xl border p-3.5 text-left transition ${
                         accountType === "investor"
                           ? "border-[#0b5ed7] bg-blue-950/60 text-white shadow-lg shadow-blue-900/20"
@@ -842,16 +759,12 @@ export default function SignUp() {
                     >
                       <Briefcase
                         className={`h-5 w-5 ${
-                          accountType === "investor"
-                            ? "text-blue-400"
-                            : ""
+                          accountType === "investor" ? "text-blue-400" : ""
                         }`}
                       />
 
                       <div>
-                        <p className="text-xs font-bold">
-                          Corporate
-                        </p>
+                        <p className="text-xs font-bold">Corporate</p>
 
                         <p className="text-[10px] text-slate-500">
                           Investor / Business
@@ -954,9 +867,8 @@ export default function SignUp() {
                         </h3>
 
                         <p className="mt-1 text-xs leading-5 text-slate-400">
-                          SUBSELL registration requires an
-                          access code provided by the website
-                          owner.
+                          SUBSEL registration requires a valid access code to
+                          create an account.
                         </p>
                       </div>
                     </div>
@@ -976,9 +888,7 @@ export default function SignUp() {
                         type="text"
                         value={accessCode}
                         onChange={(e) => {
-                          setAccessCode(
-                            e.target.value.toUpperCase()
-                          );
+                          setAccessCode(e.target.value.toUpperCase());
 
                           setAccessCodeVerified(false);
                           setCodeToken("");
@@ -998,10 +908,7 @@ export default function SignUp() {
                     <button
                       type="button"
                       onClick={handleVerifyAccessCode}
-                      disabled={
-                        verifyingCode ||
-                        !accessCode.trim()
-                      }
+                      disabled={verifyingCode || !accessCode.trim()}
                       className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0b5ed7] py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/30 transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {verifyingCode ? (
@@ -1053,11 +960,6 @@ export default function SignUp() {
                       <MessageCircle className="h-4 w-4" />
                       Request Access Code
                     </button>
-
-                    <p className="mt-3 text-[10px] leading-4 text-slate-500">
-                      You will be redirected to WhatsApp to
-                      contact the SUBSELL owner.
-                    </p>
                   </div>
 
                   {/* BUTTONS */}
@@ -1132,11 +1034,7 @@ export default function SignUp() {
                       <Lock className="absolute left-3.5 top-3.5 h-4 w-4 text-slate-500" />
 
                       <input
-                        type={
-                          showPassword
-                            ? "text"
-                            : "password"
-                        }
+                        type={showPassword ? "text" : "password"}
                         name="password"
                         required
                         value={formData.password}
@@ -1147,9 +1045,7 @@ export default function SignUp() {
 
                       <button
                         type="button"
-                        onClick={() =>
-                          setShowPassword(!showPassword)
-                        }
+                        onClick={() => setShowPassword(!showPassword)}
                         className="absolute right-3.5 top-3.5 text-slate-500 transition hover:text-slate-300"
                       >
                         {showPassword ? (
@@ -1163,26 +1059,22 @@ export default function SignUp() {
                     {formData.password && (
                       <div className="mt-3 space-y-1.5">
                         <div className="flex h-1 gap-1">
-                          {[1, 2, 3, 4].map(
-                            (level) => (
-                              <div
-                                key={level}
-                                className={`h-full flex-1 rounded-full transition-colors ${
-                                  strength >= level
-                                    ? strength <= 2
-                                      ? "bg-amber-500"
-                                      : "bg-emerald-500"
-                                    : "bg-slate-800"
-                                }`}
-                              />
-                            )
-                          )}
+                          {[1, 2, 3, 4].map((level) => (
+                            <div
+                              key={level}
+                              className={`h-full flex-1 rounded-full transition-colors ${
+                                strength >= level
+                                  ? strength <= 2
+                                    ? "bg-amber-500"
+                                    : "bg-emerald-500"
+                                  : "bg-slate-800"
+                              }`}
+                            />
+                          ))}
                         </div>
 
                         <p className="text-[11px] text-slate-400">
-                          {strength <= 2
-                            ? "Weak password"
-                            : "Strong password"}
+                          {strength <= 2 ? "Weak password" : "Strong password"}
                         </p>
                       </div>
                     )}
@@ -1243,9 +1135,7 @@ export default function SignUp() {
                       disabled={loading}
                       className="flex-1 rounded-xl bg-[#0b5ed7] py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-900/30 transition hover:bg-blue-600 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                      {loading
-                        ? "Creating Account..."
-                        : "Complete Sign Up"}
+                      {loading ? "Creating Account..." : "Complete Sign Up"}
                     </button>
                   </div>
                 </>
@@ -1280,10 +1170,7 @@ export default function SignUp() {
                 {googleLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <svg
-                    className="h-4 w-4"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24">
                     <path
                       fill="#4285F4"
                       d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"
@@ -1305,7 +1192,6 @@ export default function SignUp() {
                     />
                   </svg>
                 )}
-
                 Google
               </button>
 
@@ -1315,7 +1201,7 @@ export default function SignUp() {
                 type="button"
                 onClick={() => {
                   setError(
-                    "GitHub registration is not available yet. Please use an access code and Google or email registration."
+                    "GitHub registration is not available yet. Please use an access code and Google or email registration.",
                   );
                 }}
                 className="flex items-center justify-center gap-2.5 rounded-xl border border-white/10 bg-slate-950/60 py-3 text-xs font-semibold text-slate-300 backdrop-blur-md transition hover:bg-slate-800 hover:text-white"
@@ -1327,7 +1213,6 @@ export default function SignUp() {
                 >
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                 </svg>
-
                 GitHub
               </button>
             </div>
