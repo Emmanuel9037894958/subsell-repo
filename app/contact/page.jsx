@@ -70,12 +70,12 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#083b8a] text-white">
-        <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl sm:h-80 sm:w-80" />
+      <section className="relative overflow-hidden bg-[#083b8a] text-white py-18">
+        <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl sm:h-80 sm:w-80 " />
         <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl sm:h-80 sm:w-80" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-12 text-center sm:px-6 lg:px-8 lg:py-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-900/50 px-3.5 py-1 text-[11px] font-semibold text-blue-200 backdrop-blur-md sm:text-xs">
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8 lg:py-20">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-900/50 px-3.5 text-[11px] font-semibold text-blue-200 backdrop-blur-md sm:text-xs">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />

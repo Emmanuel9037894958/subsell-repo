@@ -10,48 +10,47 @@ import {
   ShieldCheck,
   Sparkles,
   UserPlus,
-  CreditCard,
   Unlock,
   MessageSquare,
   Zap,
   CheckCircle2,
 } from "lucide-react";
-
 import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(null);
 
   const whatsappNumber = "2348146182945";
+
   const defaultMessage = encodeURIComponent(
-    "Hello SUBSEL Support, I have an inquiry regarding your platform.",
+    "Hello SUBSEL Support, I have an inquiry regarding your platform."
   );
 
   const faqs = [
     {
       question: "What is SUBSEL?",
       answer:
-        "SUBSEL is a platform designed around a simple and transparent onboarding experience. You create your account, complete the one-time payment, and unlock access to the platform's premium suite.",
+        "SUBSEL is a platform designed around a simple and transparent digital experience. Create your account, complete the onboarding process, and unlock access to the platform's available features.",
     },
     {
-      question: "How much does SUBSEL cost?",
+      question: "How do I get started?",
       answer:
-        "The current one-time access fee is ₦5,000. This is a one-time payment to permanently unlock the platform's premium suite.",
-    },
-    {
-      question: "Is the ₦5,000 payment recurring?",
-      answer:
-        "No. The current SUBSEL model is based on a one-time ₦5,000 payment rather than a recurring monthly subscription.",
+        "Getting started is simple. Create your SUBSEL account, complete the required onboarding steps, and continue into your user experience.",
     },
     {
       question: "What happens after I register?",
       answer:
-        "After registration, you can proceed through the payment step. Once your payment is confirmed, your premium access can be unlocked.",
+        "After registration, you can continue through the onboarding process and access the features available to your account.",
+    },
+    {
+      question: "Is SUBSEL secure?",
+      answer:
+        "SUBSEL is designed with security and user protection in mind. We aim to provide a clear and protected experience while helping users manage their accounts safely.",
     },
     {
       question: "What if I need help?",
       answer:
-        "You can contact SUBSEL Support through WhatsApp for assistance with your account or onboarding process.",
+        "You can contact SUBSEL Support through WhatsApp for assistance with your account, onboarding process, or any questions about the platform.",
     },
   ];
 
@@ -62,14 +61,14 @@ export default function Home() {
       text: "Create your account through a straightforward signup process.",
     },
     {
-      icon: CreditCard,
-      title: "₦5,000 once",
-      text: "Pay the current one-time fee to unlock premium access.",
+      icon: Unlock,
+      title: "Easy access",
+      text: "Move smoothly through the onboarding process and access your platform.",
     },
     {
-      icon: Unlock,
-      title: "Premium access",
-      text: "Unlock the platform's premium suite after payment.",
+      icon: ShieldCheck,
+      title: "Secure experience",
+      text: "Use a platform designed with security, clarity, and user protection in mind.",
     },
   ];
 
@@ -82,45 +81,45 @@ export default function Home() {
     },
     {
       number: "02",
-      icon: CreditCard,
-      title: "Pay one-time fee",
-      text: "Make a secure one-time payment of ₦5,000 to permanently unlock the platform's premium suite.",
+      icon: ShieldCheck,
+      title: "Complete onboarding",
+      text: "Follow the required steps to finish setting up your SUBSEL account.",
     },
     {
       number: "03",
       icon: Unlock,
-      title: "Unlock premium access",
-      text: "Once your payment is confirmed, continue into the premium experience available through SUBSEL.",
+      title: "Access your platform",
+      text: "Once your account setup is complete, continue into the SUBSEL experience.",
     },
   ];
 
   const benefits = [
-    "One-time ₦5,000 access fee",
     "Simple registration process",
-    "Clear onboarding steps",
-    "Premium suite access after confirmation",
+    "Clear onboarding experience",
+    "Secure account management",
+    "Access to the SUBSEL platform",
   ];
 
   const transparencyItems = [
     {
       icon: ShieldCheck,
       title: "Security",
-      text: "Your account and onboarding experience should be protected.",
+      text: "Your account and digital experience are designed with security in mind.",
     },
     {
       icon: Lock,
       title: "Transparency",
-      text: "The one-time access fee is clearly stated before payment.",
+      text: "Clear information and straightforward processes help you understand every step.",
     },
     {
       icon: Zap,
       title: "Simplicity",
-      text: "A straightforward process from registration to access.",
+      text: "A straightforward experience without unnecessary complexity.",
     },
     {
       icon: CheckCircle2,
       title: "Clear steps",
-      text: "Know what happens at every stage of the process.",
+      text: "Know what happens at every stage of your SUBSEL journey.",
     },
   ];
 
@@ -132,7 +131,6 @@ export default function Home() {
           HERO
       ========================================================== */}
       <section className="relative overflow-hidden bg-white">
-        {/* Background decoration */}
         <div className="pointer-events-none absolute -left-40 -top-40 h-72 w-72 rounded-full bg-blue-50 blur-3xl sm:h-96 sm:w-96" />
 
         <div className="pointer-events-none absolute -right-40 top-20 h-72 w-72 rounded-full bg-blue-50/70 blur-3xl sm:h-96 sm:w-96" />
@@ -150,15 +148,17 @@ export default function Home() {
                 <span>Welcome to SUBSEL</span>
               </div>
 
-              <h1 className="text-4xl font-black leading-[1.05] tracking-[-0.04em] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl py-7">
+              <h1 className="py-7 text-4xl font-black leading-[1.05] tracking-[-0.04em] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
                 Getting value should be
-                <span className="block text-[#1456d8]">straightforward.</span>
+                <span className="block text-[#1456d8]">
+                  straightforward.
+                </span>
               </h1>
 
               <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-slate-600 sm:mt-7 sm:text-base sm:leading-8 lg:mx-0 lg:text-lg">
                 SUBSEL gives you a simple and transparent way to get started.
-                Register, make a secure one-time payment of ₦5,000, and unlock
-                the platform&apos;s premium suite.
+                Create your account, complete the onboarding process, and
+                unlock the platform&apos;s available features.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:mt-4 sm:flex-row sm:justify-center lg:justify-start">
@@ -167,6 +167,7 @@ export default function Home() {
                   className="group inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[#1456d8] px-7 text-sm font-bold text-white shadow-xl shadow-blue-200 transition duration-300 hover:-translate-y-0.5 hover:bg-[#0d46b5] sm:w-auto"
                 >
                   Get Started
+
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
 
@@ -186,12 +187,12 @@ export default function Home() {
 
                 <span className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-600" />
-                  One-time payment
+                  Simple process
                 </span>
 
                 <span className="flex items-center gap-2">
                   <Lock className="h-4 w-4 text-green-600" />
-                  Transparent process
+                  Transparent experience
                 </span>
               </div>
             </div>
@@ -223,7 +224,7 @@ export default function Home() {
                       </p>
 
                       <p className="mt-1 text-base font-bold text-white sm:text-lg">
-                        Premium access
+                        Your platform
                       </p>
                     </div>
 
@@ -236,16 +237,16 @@ export default function Home() {
                     <div className="flex items-center justify-between gap-3">
                       <div>
                         <p className="text-[10px] text-slate-400 sm:text-xs">
-                          One-time access
+                          Account status
                         </p>
 
                         <p className="mt-1 text-xl font-black text-white sm:text-2xl">
-                          ₦5,000
+                          Active
                         </p>
                       </div>
 
                       <span className="rounded-full bg-green-500/10 px-2.5 py-1.5 text-[8px] font-bold text-green-300 sm:px-3 sm:text-[10px]">
-                        ONE-TIME
+                        ACTIVE
                       </span>
                     </div>
                   </div>
@@ -253,8 +254,8 @@ export default function Home() {
                   <div className="mt-3 space-y-2 sm:mt-4 sm:space-y-3">
                     {[
                       "Create your account",
-                      "Complete secure payment",
-                      "Unlock premium suite",
+                      "Complete your profile",
+                      "Access your platform",
                     ].map((item, index) => (
                       <div
                         key={item}
@@ -321,8 +322,8 @@ export default function Home() {
               How it works
             </p>
 
-            <h2 className="mt-3 text-xl font-black tracking-tight text-slate-950 sm:mt-4 sm:text-xl lg:text-5xl">
-              Getting value is straightforward and transparent
+            <h2 className="mt-3 text-xl font-black tracking-tight text-slate-950 sm:mt-4 lg:text-5xl">
+              Getting started is straightforward
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:mt-5 sm:text-base lg:text-lg">
@@ -339,7 +340,10 @@ export default function Home() {
                 const Icon = step.icon;
 
                 return (
-                  <div key={step.number} className="relative z-10 text-center">
+                  <div
+                    key={step.number}
+                    className="relative z-10 text-center"
+                  >
                     <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-[24px] border border-blue-100 bg-blue-50 text-[#1456d8] shadow-sm sm:h-24 sm:w-24 sm:rounded-[28px]">
                       <Icon
                         className="h-8 w-8 sm:h-9 sm:w-9"
@@ -367,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* =========================================================
-          PREMIUM SUITE
+          PLATFORM FEATURES
       ========================================================== */}
       <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-24 lg:py-28">
         <div className="pointer-events-none absolute -right-40 -top-40 h-80 w-80 rounded-full bg-blue-100/70 blur-3xl sm:h-96 sm:w-96" />
@@ -376,18 +380,20 @@ export default function Home() {
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#1456d8] sm:text-sm">
-                Premium suite
+                Platform experience
               </p>
 
               <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:mt-4 sm:text-4xl lg:text-5xl">
-                One simple payment.
-                <span className="block text-[#1456d8]">Premium access.</span>
+                Everything designed around
+                <span className="block text-[#1456d8]">
+                  a better experience.
+                </span>
               </h2>
 
               <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:mt-6 sm:text-base sm:leading-8 lg:text-lg">
-                SUBSEL keeps access simple. Instead of making the process
-                confusing, the current model uses a one-time ₦5,000 payment to
-                unlock the platform&apos;s premium suite.
+                SUBSEL keeps the user experience simple, organized, and easy
+                to understand. Our platform is designed to help users move
+                confidently through their digital journey.
               </p>
 
               <div className="mt-7 space-y-4 sm:mt-8">
@@ -413,7 +419,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Pricing card */}
+            {/* Platform card */}
             <div className="relative mx-auto w-full max-w-md">
               <div className="absolute -inset-4 rounded-[36px] bg-blue-100 blur-2xl" />
 
@@ -426,7 +432,7 @@ export default function Home() {
                       </p>
 
                       <h3 className="mt-2 text-xl font-black sm:text-2xl">
-                        Premium Access
+                        User Platform
                       </h3>
                     </div>
 
@@ -436,27 +442,27 @@ export default function Home() {
                   </div>
 
                   <div className="mt-7 sm:mt-8">
-                    <span className="text-4xl font-black sm:text-5xl">
-                      ₦5,000
+                    <span className="text-3xl font-black sm:text-4xl">
+                      Welcome
                     </span>
 
-                    <span className="ml-2 text-xs font-semibold text-blue-100 sm:text-sm">
-                      one-time
-                    </span>
+                    <p className="mt-2 text-sm text-blue-100">
+                      Your SUBSEL experience starts here.
+                    </p>
                   </div>
                 </div>
 
                 <div className="p-6 sm:p-9">
                   <p className="text-sm leading-6 text-slate-500">
-                    Make the one-time payment to permanently unlock the
-                    platform&apos;s premium suite.
+                    Everything you need is organized in one simple and
+                    accessible platform.
                   </p>
 
                   <div className="mt-5 space-y-3 sm:mt-6">
                     {[
                       "Simple onboarding",
-                      "Transparent payment",
-                      "Premium suite access",
+                      "Secure account",
+                      "Easy navigation",
                     ].map((item) => (
                       <div
                         key={item}
@@ -495,14 +501,17 @@ export default function Home() {
                 Built for clarity
               </p>
 
-              <h2 className="mt-3 text-xl font-black tracking-tight text-slate-950 sm:mt-4 sm:text-4xl lg:text-5xl">
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:mt-4 sm:text-4xl lg:text-5xl">
                 No complicated process.
-                <span className="block text-[#1456d8]">Just clear steps.</span>
+                <span className="block text-[#1456d8]">
+                  Just clear steps.
+                </span>
               </h2>
 
               <p className="mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:mt-6 sm:text-base sm:leading-8 lg:text-lg">
-                From registration to premium access, SUBSEL is designed so users
-                can understand what they are doing and why they are doing it.
+                From registration to accessing your platform, SUBSEL is
+                designed so users can understand what they are doing and why
+                they are doing it.
               </p>
 
               <Link
@@ -545,7 +554,7 @@ export default function Home() {
       {/* =========================================================
           FAQ
       ========================================================== */}
-      <section className="bg-slate-50 py-2 sm:py-24 lg:py-28">
+      <section className="bg-slate-50 py-16 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#1456d8] sm:text-sm">
@@ -619,9 +628,9 @@ export default function Home() {
             Ready to get started with SUBSEL?
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-blue-100 sm:mt-5 sm:text-base sm:text-lg">
-            Create your account, complete the one-time ₦5,000 payment, and
-            unlock the platform&apos;s premium suite.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-blue-100 sm:mt-5 sm:text-base">
+            Create your account, complete the onboarding process, and start
+            exploring the SUBSEL platform.
           </p>
 
           <Link
@@ -629,6 +638,7 @@ export default function Home() {
             className="mt-7 inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-white px-8 text-sm font-black text-[#0b2d68] shadow-xl transition duration-300 hover:-translate-y-0.5 hover:bg-blue-50 sm:mt-9 sm:w-auto"
           >
             Create Your SUBSEL Account
+
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -651,6 +661,7 @@ export default function Home() {
         >
           <span className="absolute right-0 top-0 flex h-4 w-4">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+
             <span className="relative inline-flex h-4 w-4 rounded-full border-2 border-white bg-emerald-500" />
           </span>
 
