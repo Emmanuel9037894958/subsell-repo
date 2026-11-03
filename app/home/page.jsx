@@ -9,7 +9,7 @@ export default function Home() {
   const whatsappNumber = "2348146182945";
 
   const defaultMessage = encodeURIComponent(
-    "Hello SUBSELL Support, I have an inquiry regarding your platform.",
+    "Hello SUBSEL Support, I have an inquiry regarding your platform.",
   );
 
   return (
@@ -43,7 +43,7 @@ export default function Home() {
               {/* Welcome Badge */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/30 bg-blue-950/80 px-3.5 py-2 text-xs font-semibold text-blue-300 backdrop-blur-md">
                 <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
-                Welcome to SUBSELL
+                Welcome to SUBSEL
               </div>
 
               {/* Heading */}

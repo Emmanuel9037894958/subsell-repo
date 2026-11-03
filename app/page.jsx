@@ -144,14 +144,14 @@ export default function Home() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
                 </span>
-
                 <span>Welcome to SUBSEL</span>
+
               </div>
 
-              <h1 className="py-7 text-4xl font-black leading-[1.05] tracking-[-0.04em] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
-                Getting value should be
+              <h1 className="py-10 text-3xl font-black leading-[1.05] tracking-[-0.04em] text-slate-950 sm:text-5xl md:text-6xl lg:text-7xl">
+                Transforming Digital Connections Into Lasting
                 <span className="block text-[#1456d8]">
-                  straightforward.
+                   Opportunities.
                 </span>
               </h1>
 

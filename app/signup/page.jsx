@@ -66,10 +66,6 @@ export default function SignUp() {
     agreedToTerms: false,
   });
 
-  // --------------------------------------------------
-  // PASSWORD STRENGTH
-  // --------------------------------------------------
-
   const getPasswordStrength = (pass) => {
     let score = 0;
 
@@ -97,10 +93,6 @@ export default function SignUp() {
 
     setError("");
   };
-
-  // --------------------------------------------------
-  // FIREBASE ERROR HANDLER
-  // --------------------------------------------------
 
   const getFirebaseError = (error) => {
     switch (error?.code) {
